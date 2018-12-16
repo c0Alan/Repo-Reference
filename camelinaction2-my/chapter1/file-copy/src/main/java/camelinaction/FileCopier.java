@@ -6,28 +6,34 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
 
+/**
+ * 原始的方式拷贝文件
+ *
+ * @author liuxilin
+ * @date 2018/12/16 21:35
+ */
 public class FileCopier {
 
     public static void main(String args[]) throws Exception {
         File inboxDirectory = new File("data/inbox");
         File outboxDirectory = new File("data/outbox");
-        
+
         outboxDirectory.mkdir();
-        
+
         File[] files = inboxDirectory.listFiles();
         for (File source : files) {
             if (source.isFile()) {
                 File dest = new File(
-                        outboxDirectory.getPath() 
-                        + File.separator 
-                        + source.getName()); 
+                        outboxDirectory.getPath()
+                                + File.separator
+                                + source.getName());
                 copyFile(source, dest);
             }
         }
     }
-    
-    private static void copyFile(File source, File dest) 
-        throws IOException {
+
+    private static void copyFile(File source, File dest)
+            throws IOException {
         OutputStream out = new FileOutputStream(dest);
         byte[] buffer = new byte[(int) source.length()];
         FileInputStream in = new FileInputStream(source);
@@ -35,7 +41,7 @@ public class FileCopier {
         try {
             out.write(buffer);
         } finally {
-            out.close();      
+            out.close();
             in.close();
         }
     }

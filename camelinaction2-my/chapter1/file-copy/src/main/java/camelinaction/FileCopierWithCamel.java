@@ -4,6 +4,12 @@ import org.apache.camel.CamelContext;
 import org.apache.camel.builder.RouteBuilder;
 import org.apache.camel.impl.DefaultCamelContext;
 
+/**
+ * 使用 camel 的方式拷贝文件
+ *
+ * @author liuxilin
+ * @date 2018/12/16 21:56
+ */
 public class FileCopierWithCamel {
 
     public static void main(String args[]) throws Exception {
