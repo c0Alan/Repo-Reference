@@ -18,7 +18,7 @@ public class ZookeeperProperties {
 
 	@NotNull(message = "zookeeper服务地址不能为空")
     private String server;
-	@NotNull(message = "namespace不能为空")
+//	@NotNull(message = "namespace不能为空")
     private String namespace;
     private String digest;
     private Integer sessionTimeoutMs = 60000;

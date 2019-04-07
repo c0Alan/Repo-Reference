@@ -19,6 +19,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Random;
 import java.util.concurrent.*;
@@ -278,6 +279,35 @@ public class ZookeeperController {
         zkClient.createNode(CreateMode.fromFlag(1),"/test/hello_service2","http://1270.0.1:8002/");
         zkClient.createNode(CreateMode.fromFlag(1),"/test/hello_service3","http://1270.0.1:8003/");
         return zkClient.getRandomData("/test");
+    }
+
+    /**
+     *
+     * @return
+     * @throws KeeperException
+     */
+    @ApiOperation(value = "获取所有节点",notes = "获取所有节点")
+    @RequestMapping(value="/getAllnode",method=RequestMethod.GET)
+    public LinkedHashMap getAllnode() throws KeeperException {
+        //服务注册
+        LinkedHashMap nodes = getNodes("/");
+        return nodes;
+    }
+
+    public LinkedHashMap getNodes(String parentPath) {
+
+        LinkedHashMap pathMap = new LinkedHashMap();
+        List<String> nodes = zkClient.getChildren(parentPath);
+        for (String path : nodes) {
+            String newPath = parentPath + "/" + path;
+            if ("/".endsWith(parentPath)) {
+                newPath = newPath.substring(1);
+            }
+            LinkedHashMap childMap = getNodes(newPath);
+            pathMap.put(path, childMap);
+        }
+
+        return pathMap;
     }
 
 }
