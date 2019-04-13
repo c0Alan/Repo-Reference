@@ -52,6 +52,7 @@ public class ZookeeperController {
     })
     @RequestMapping(value = "/create/{type}/{znode}",method=RequestMethod.POST)
     private String create(@PathVariable Integer type,@PathVariable String znode,@RequestBody String nodeData){
+        znode = znode.replace("-", "/");
         znode = "/" + znode;
         try {
             zkClient.createNode(CreateMode.fromFlag(type),znode,nodeData);
