@@ -5,7 +5,7 @@
 
     <groupId>com.forezp</groupId>
     <artifactId>sc-f-chapter10</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>0.0.10</version>
     <packaging>pom</packaging>
 
     <name>sc-f-chapter10</name>
@@ -56,6 +56,15 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
+            <!--<plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <configuration>
+                    <excludes>
+                        <exclude>**/*.yml</exclude>
+                    </excludes>
+                </configuration>
+            </plugin>-->
         </plugins>
     </build>
 
