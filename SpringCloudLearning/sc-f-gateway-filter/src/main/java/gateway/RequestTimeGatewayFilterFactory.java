@@ -42,7 +42,7 @@ public class RequestTimeGatewayFilterFactory extends AbstractGatewayFilterFactor
                             StringBuilder sb = new StringBuilder(exchange.getRequest().getURI().getRawPath())
                                     .append(": ")
                                     .append(System.currentTimeMillis() - startTime)
-                                    .append("ms");
+                                    .append("ms-factory");
                             if (config.isWithParams()) {
                                 sb.append(" params:").append(exchange.getRequest().getQueryParams());
                             }
@@ -52,10 +52,6 @@ public class RequestTimeGatewayFilterFactory extends AbstractGatewayFilterFactor
             );
         };
     }
-
-
-
-
 
 
     public static class Config {

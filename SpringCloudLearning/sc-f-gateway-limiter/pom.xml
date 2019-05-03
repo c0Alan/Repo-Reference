@@ -4,8 +4,8 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.forezp</groupId>
-    <artifactId>sc-f-gateway-filter</artifactId>
-    <version>0.1.0</version>
+    <artifactId>sc-f-gateway-limiter</artifactId>
+    <version>0.1.1</version>
 
     <parent>
         <groupId>org.springframework.boot</groupId>

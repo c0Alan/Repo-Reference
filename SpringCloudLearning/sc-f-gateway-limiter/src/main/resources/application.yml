@@ -13,11 +13,11 @@ spring:
           args:
             key-resolver: '#{@hostAddrKeyResolver}'
             redis-rate-limiter.replenishRate: 1
-            redis-rate-limiter.burstCapacity: 1
+            redis-rate-limiter.burstCapacity: 10
   application:
     name: gateway-limiter
   redis:
-    host: localhost
+    host: 192.168.222.128
     port: 6379
     database: 0
 
